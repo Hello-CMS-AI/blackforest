@@ -1,13 +1,12 @@
-import withTM from 'next-transpile-modules';
-
-const transpileModules = ['@babel/runtime', 'rc-util', 'rc-picker', 'rc-tree', 'rc-table'];
-
-const nextConfig = withTM(transpileModules)({
-  reactStrictMode: true,
-  images: {
-    domains: ['api10.theblackforestcakes.com'], // Add 'localhost' for local development
-  },
-  webpack: (config) => config,
-});
-
-export default nextConfig;
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    reactStrictMode: true,
+    transpilePackages: ["rc-util", "rc-picker", "rc-tree", "rc-table"], // Fix: Each package should be a separate string
+    webpack: (config) => {
+      config.resolve.fallback = { fs: false, path: false };
+      return config;
+    },
+  };
+  
+  export default nextConfig;
+  
