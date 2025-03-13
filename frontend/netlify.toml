@@ -1,10 +1,24 @@
-[build]
-  base    = "cms-frontend"     # Points to the subdirectory containing your Next.js project
-  command = "npm run build"    # The build command
-  publish = ".next"            # The directory to publish (relative to base)
+# Netlify configuration file for blackforestlive repository
 
+[build]
+  # Base directory for the build (relative to the repository root)
+  base = "frontend"
+
+  # Command to build the Next.js app
+  command = "npm run build"
+
+  # Directory where the built files are output (relative to the base directory)
+  publish = ".next"
+
+  # Environment variables for the build
+  [build.environment]
+    NODE_VERSION = "18"
+
+# Enable the Next.js plugin for SSR, API routes, and other features
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-[build.environment]
-  NODE_VERSION = "18.16.0"     # Specify a precise, supported Node.js version
+# Optional: Development settings for Netlify Dev (local development)
+[dev]
+  command = "npm run dev"
+  port = 8888
