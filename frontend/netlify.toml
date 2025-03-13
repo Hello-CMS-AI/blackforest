@@ -12,7 +12,7 @@
 
   # Environment variables for the build
   [build.environment]
-    NODE_VERSION = "20"
+    NODE_VERSION = "18.19.0"
 
 # Enable the Next.js plugin for SSR, API routes, and other features
 [[plugins]]
