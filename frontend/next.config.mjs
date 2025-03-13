@@ -7,8 +7,7 @@ const nextConfig = {
     return config;
   },
   experimental: {
-    esmExternals: "loose" // This line fixes the Ant Design error
+    esmExternals: "loose" // Handle ESM modules like @ant-design/icons-svg
   }
 };
-
 export default nextConfig;
