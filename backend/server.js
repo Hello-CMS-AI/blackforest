@@ -7,6 +7,12 @@ const morgan = require('morgan');
 const cron = require('node-cron'); // Step: Import node-cron
 const { updateStockOrderStatus } = require('./controllers/orderController'); // Step: Import the function
 
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://blackforestcakes.netlify.app',
+  'https://*.netlify.app' // Supports subdomains (optional)
+];
+
 require('dotenv').config();
 const categoryRoutes = require('./routes/categoryRoutes');
 const albumRoutes = require('./routes/albumRoutes');
@@ -28,6 +34,21 @@ if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
   console.log('Upload directory created:', uploadDir);
 }
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.netlify.app')) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+    exposedHeaders: ['Authorization']
+  })
+);
 
 // Middleware
 app.use(cors({ origin: '*' }));

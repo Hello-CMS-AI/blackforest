@@ -8,7 +8,7 @@ const EditAlbum = () => {
   const [album, setAlbum] = useState(null);
   const router = useRouter();
   const { id } = router.query;
-  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://api10.theblackforestcakes.com:5000';
 
   // ✅ Fetch Album Details When Page Loads
   useEffect(() => {

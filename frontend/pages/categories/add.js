@@ -13,7 +13,7 @@ const AddCategoryPage = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://api10.theblackforestcakes.com:5000';
 
   useEffect(() => {
     const token = localStorage.getItem('token');

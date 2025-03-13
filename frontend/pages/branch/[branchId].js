@@ -56,7 +56,7 @@ const BranchPage = ({ branchId }) => {
 
   const contentRef = useRef(null);
 
-  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://api10.theblackforestcakes.com:5000';
   const defaultDeliveryDateTime = dayjs().add(1, 'day').set('hour', 10).set('minute', 0).set('second', 0).tz('Asia/Kolkata');
 
   useEffect(() => {
