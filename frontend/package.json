@@ -11,6 +11,7 @@
   "dependencies": {
     "@netlify/plugin-nextjs": "^5.10.0",
     "antd": "^5.23.4",
+    "ant-design/icons-svg": "^4.2.0",
     "axios": "^1.7.9",
     "bwip-js": "^4.5.1",
     "dayjs": "^1.11.13",
